@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>窗口位置测试</title>
+</head>
+<body>
+<h3>window.open：</h3>
+<button onclick="openBtn()">打开新窗口</button>
+<script>
+    function openBtn() {
+        var isBlocked = false;
+        var wins = window.open("https://www.baidu.com/","","height=300,width=500,left=300,top=300,resizable=no,scrollbars=no,status=no,toolbar=no");
+        try{
+            if(wins==null){
+                isBlocked = true;
+            }
+        }catch (ex){
+            isBlocked = true;
+        }
+        if(isBlocked){
+            alert("该窗口被屏蔽！");
+        }else{
+            alert("该窗口没有被屏蔽！");
+        }
+
+    }
+
+</script>
+</body>
+</html>
