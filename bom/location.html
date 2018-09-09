@@ -7,10 +7,22 @@
 <body>
 <h3>search解析：</h3>
 <button onclick="openWay1()">跳转1</button>
+<p style="color:orangered">location.assign(url)方式跳转</p>
 <button onclick="openWay2()">跳转2</button>
+<p style="color:orangered">location.href=url方式跳转</p>
 <button onclick="openWay3()">跳转3</button>
+<p style="color:orangered">window.location=url方式跳转</p>
+<button onclick="replaceUrl()">replace</button>
+<p style="color:orangered">replace方法后，用户不能回到前一个页面，不会在历史记录中生成新的记录</p>
+<button onclick="reloadCookie()">缓存加载</button>
+<p style="color:orangered">如何页面自上次请求没有变过，页面就会从浏览器缓存中重新加载</p>
+<button onclick="reloadService()">服务器加载</button>
+<p style="color:orangered">强制从服务器重新加载</p>
+
+
+
 <script>
-    console.log("?参数：",location.search);
+    console.log("页面加载了。。。");
     function getSearchParams(urlSearch) {
         var urlStr = (urlSearch.length>0?urlSearch.substring(1):"");
         var urlParams = {};
@@ -41,8 +53,16 @@
         window.location="https://www.baidu.com/";
     }
 
-
-
+    function replaceUrl() {
+        location.replace("https://www.baidu.com/");
+    }
+    function reloadCookie() {
+        location.reload();
+    }
+    function reloadService() {
+        location.reload(true);
+    }
 </script>
+
 </body>
 </html>
