@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>navigator对象</title>
+</head>
+<body>
+<button onclick="checkFlash()">检测</button>
+<p style="color: red">检测是否有flash插件</p>
+
+
+<script>
+    <!--检测非IE插件-->
+    //name是插件名称
+    function hasPlugin(name) {
+        name=name.toLowerCase();
+        for(var i=0;i<navigator.plugins.length;i++){
+            if(navigator.plugins[i].name.toLowerCase().indexOf(name)>-1){
+                return true;
+            }
+        }
+        return false;
+    }
+    //检测IE插件name为插件的标识符
+    function hasIEPlugin(name) {
+        try{
+            new ActiveXObject(name);
+            return true;
+        }catch (ex){
+            return false;
+        }
+    }
+    //例如加测是否有flash插件
+    function hasFlash() {
+        var result = hasPlugin("Flash");
+        if(!result){
+            result = hasIEPlugin("ShockwaveFlash.ShockwaveFlash");
+        }
+
+        return result;
+    }
+    function checkFlash() {
+       var result =  hasFlash();
+       if(result){
+           alert("安装Flash插件");
+       }else{
+           alert("没有安装Flash插件");
+       }
+    }
+
+</script>
+</body>
+</html>
