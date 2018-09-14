@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分页</title>
+    <link rel="stylesheet" href="css.css">
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="page.js"></script>
+    <style>
+        body{
+            background: #3C474C;
+        }
+        .page-content{
+           padding: 15px;
+        }
+        .item {
+           display: inline-block;
+            width: 3em;
+            vertical-align: middle;
+            line-height: 2;
+            text-align: center;
+            background: #fff;
+
+        }
+    </style>
+</head>
+<body>
+<div class="public-page clearfix">
+    <div class="page-content">
+        <div class="item" data-value="first">
+            首页
+        </div>
+        <div class=" item up-page" data-value="up">
+           <
+        </div>
+        <div class="item" data-value="next">
+           >
+        </div>
+        <div class="item" data-value="last">
+            尾页
+        </div>
+    </div>
+</div>
+<script src="js.js"></script>
+</body>
+</html>
